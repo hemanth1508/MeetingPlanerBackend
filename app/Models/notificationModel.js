@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const time = require('../libs/timeLib')
+const time = require('../Libs/timeLib')
 
 const schema = mongoose.Schema;
 

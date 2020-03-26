@@ -8,7 +8,7 @@ const check = require("./checkLib");
 const response = require('./responseLib');
 const time = require('./timeLib');
 const redisLib = require("./redisLib");
-const emailLib = require('../libs/emailLib');
+const emailLib = require('../Libs/emailLib');
 const notificationModel = mongoose.model('notificationModel')
 
 let setServer = (server) => {

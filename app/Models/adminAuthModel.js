@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
-const time = require('../libs/timeLib')
+const time = require('../Libs/timeLib')
 
 const adminAuthModel = new Schema({
   adminId: {

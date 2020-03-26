@@ -1,14 +1,14 @@
 
 const mongoose = require('mongoose');
 const shortid = require('shortid');
-const time = require('./../libs/timeLib');
-const passwordLib = require('./../libs/generatePasswordLib');
-const response = require('./../libs/responseLib')
-const logger = require('./../libs/loggerLib');
-const validateInput = require('../libs/paramsValidationLib')
-const check = require('../libs/checkLib')
-const token = require('../libs/tokenLib')
-const emailLib = require('../libs/emailLib');
+const time = require('./../Libs/timeLib');
+const passwordLib = require('./../Libs/generatePasswordLib');
+const response = require('./../Libs/responseLib')
+const logger = require('./../Libs/loggerLib');
+const validateInput = require('../Libs/paramsValidationLib')
+const check = require('../Libs/checkLib')
+const token = require('../Libs/tokenLib')
+const emailLib = require('../Libs/emailLib');
 /* Models */
 const UserModel = mongoose.model('userModel');
 const notificationModel = mongoose.model('notificationModel');
