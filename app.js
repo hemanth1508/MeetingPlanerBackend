@@ -68,7 +68,7 @@ server.on('listening', onListening);
 
 
 // socket io connection handler 
-const socketLib = require("./app/libs/socketLib");
+const socketLib = require("./app/Libs/socketLib");
 const socket = socketLib.setServer(server);
 
 // end socketio connection handler

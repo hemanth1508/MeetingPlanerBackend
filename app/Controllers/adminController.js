@@ -80,7 +80,7 @@ let signUpFunction = (req, res) => {
                                     link-> <a href='${newUserObj.accountVerification}'>${newUserObj.accountVerification}</a>
                                     <br>
                                     <b>Meeting Planner <br>
-                                    Ashish mangukiya</b>`
+                                    Hemanth Reddy</b>`
                                 }
 
 
@@ -369,7 +369,7 @@ let resetPasswordFunction = (req, res) => {
                             </p>
     
                             Meeting Planner
-                            <br><b>Ashish mangukiya </b>
+                            <br><b>Hemanth Reddy </b>
                                         `
                     }
 
@@ -475,7 +475,7 @@ let updatePasswordFunction = (req, res) => {
                         </p>
                         <h3> Thanks for using Meeting Planner </h3>
                         Meeting Planner 
-                        <br><b>Ashish mangukiya</b>
+                        <br><b>Hemanth Reddy</b>
                                     `
                     }
 

@@ -367,7 +367,7 @@ let resetPasswordFunction = (req, res) => {
                             </p>
     
                             Meeting Planner
-                            <br><b>Ashish mangukiya </b>
+                            <br><b>Hemanth Reddy </b>
                                         `
                     }
 
@@ -473,7 +473,7 @@ let updatePasswordFunction = (req, res) => {
                         </p>
                         <h3> Thanks for using Meeting Planner </h3>
                         Meeting Planner  
-                        <br><b>Ashish mangukiya</b>
+                        <br><b>Hemanth Reddy</b>
                                     `
                     }
 
@@ -566,8 +566,8 @@ let signUpAdminFunction = (req, res) => {
                                     html: `<b> Dear ${newUserObj.firstName}</b><br> Hope you are doing well. 
                                     <br>thank you for using our Meeting Planner Website.<br>
                                     
-                                    <b>CEO,Meeting Planner <br>
-                                    Ashish mangukiya</b>
+                                    <b>Meeting Planner <br>
+                                    Hemanth Reddy</b>
                                     `
                                 }
 
