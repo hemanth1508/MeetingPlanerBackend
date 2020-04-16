@@ -1,6 +1,8 @@
 const config = require('../../Config/appConfig');
 const controller = require('../Controllers/userController');
 const auth = require('../Middlewares/auth');
+const upload = require('../Middlewares/uploadProfile');
+
 
 let setRouter = (app) => {
     let baseUrl = config.apiVersion + '/user';
@@ -258,6 +260,9 @@ let setRouter = (app) => {
         "data": null
     }
     */
+
+    app.post(baseUrl + '/upload', upload.array('image', 1), (req, res) => { res.send({ image: req.file }); });
+
 }
 module.exports = {
     setRouter: setRouter
