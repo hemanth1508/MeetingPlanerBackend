@@ -44,6 +44,10 @@ let userModel = new schema(
         recoveryPassword: {
             type: String,
             default: ''
+        },
+        profilePic: {
+            type: Boolean,
+            default: false
         }
     }
 )

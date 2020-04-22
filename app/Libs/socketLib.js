@@ -10,6 +10,7 @@ const time = require('./timeLib');
 const redisLib = require("./redisLib");
 const emailLib = require('../Libs/emailLib');
 const notificationModel = mongoose.model('notificationModel')
+const userModel = mongoose.model('userModel');
 
 let setServer = (server) => {
 
@@ -218,6 +219,28 @@ let setServer = (server) => {
             setTimeout(() => {
                 emailLib.sendEmail(sms);
             }, 2000)
+        })
+
+        socket.on('user-profile-upload', (data) => {
+            let options = {
+                profilePic: true
+            }
+            userModel.update({ userId: data.userId }, options).exec((err, result) => {
+                if (err) {
+                    console.log(err)
+                    logger.error(err.message, 'User Controller:profileUploadFunction', 10)
+                    let apiResponse = response.generate(true, 'Failed To upload profile photo', 500, null)
+                    socket.emit('profile-uploaded', apiResponse);
+
+                } else if (check.isEmpty(result)) {
+                    logger.info('No User Found with given Details', 'User Controller: profileUploadFunction')
+                    let apiResponse = response.generate(true, 'No user found to upload profile photo', 404, null)
+                    socket.emit('profile-uploaded', apiResponse);
+                } else {
+                    let apiResponse = response.generate(false, 'Profile photo uploaded successfully', 200, result)
+                    socket.emit('profile-uploaded', apiResponse);
+                }
+            });
         })
     })
 

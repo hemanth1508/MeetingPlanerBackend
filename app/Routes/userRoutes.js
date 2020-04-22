@@ -261,8 +261,47 @@ let setRouter = (app) => {
     }
     */
 
-    app.post(baseUrl + '/upload', upload.array('image', 1), (req, res) => { res.send({ image: req.file }); });
+    app.post(baseUrl + '/upload', upload.array('image', 1), (req, res) => { res.send({ image: 'profile uploaded successfully' }); });
 
+    app.post(baseUrl + '/get/detail', auth.isAuthorized, controller.getUserDetail);
+    /**
+     * @apiGroup admin
+     * @apiVersion 0.0.1
+     * @api {post} /api/v1/admin/signup to get user detail 
+     *
+     * @apiParam {string} userId userId of the user.(body params)(required)
+     * @apiParam {string} authToken authToken of the admin.(body params)(required)
+      * 
+     * @apiSuccess {object} apiResponse shows error status, message, http status code, result.
+     * 
+     * @apiSuccessExample {object} success-response:
+    {
+        "error": false,
+        "message": "user detail found",
+        "status": 200,
+        "data": [
+            {
+                "userId": "Ww_nL_ZGq",
+                "firstName": "ashish",
+                "lastName": "patel",
+                "activated": true,
+                "country": "IN",
+                "email": "ashishmangukiyapm@gmail.com",
+                "mobileNumber": "918446680648",
+                "recoveryPassword": "-eRdWE4pk",
+                "_id": "5ba32ee9c6b96616b511c9da",
+                "__v": 0
+            }
+        ]
+    }
+    @apiErrorExample {json} error-response:
+    {
+        "error": "true",
+        "message": "user detail not found",
+        "status": 404,
+        "data": null
+    }
+    */
 }
 module.exports = {
     setRouter: setRouter

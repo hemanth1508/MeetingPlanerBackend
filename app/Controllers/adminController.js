@@ -583,12 +583,12 @@ let getAllEvents = (req, res) => {
 let getUserDetail = (req, res) => {
     UserModel.find({ 'userId': req.body.userId }, (err, userDetail) => {
         if (err) {
-            logger.error('Failed To Retrieve user Data', 'adminController: gateUserDetail()', 10)
+            logger.error('Failed To Retrieve user Data', 'adminController: getUserDetail()', 10)
             let apiResponse = response.generate('true', 'user detail not found', 404, null);
             res.send(apiResponse);
         }
         else if (check.isEmpty(userDetail)) {
-            logger.error('Failed To Retrieve user Data', 'adminController: gateUserDetail()', 10)
+            logger.error('Failed To Retrieve user Data', 'adminController: getUserDetail()', 10)
             let apiResponse = response.generate('true', 'user detail not found', 404, null);
             res.send(apiResponse);
         }
@@ -600,6 +600,7 @@ let getUserDetail = (req, res) => {
     })
 
 }
+
 let accountVerify = (req, res) => {
     let detail = {
         account: `http://localhost:4200/email-verify/admin/${req.body.adminId}/${req.body.secretId}`

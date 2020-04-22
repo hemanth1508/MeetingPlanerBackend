@@ -75,7 +75,7 @@ let signUpFunction = (req, res) => {
                                     subject: 'Welcome to Meeting Planner ',
                                     html: `<b> Dear ${newUserObj.firstName}</b><br> Thanks for using our <b>Meeting planner</b> App. 
                                     <br>click on below link to activate your account.<br>
-                                    link-> <a href='${newUserObj.accountVerification}'>${newUserObj.accountVerification}</a>
+                                    link-> <button><a href='${newUserObj.accountVerification}'>click here</a></button>
                                     <br>
                                     <b>Meeting Planner <br>
                                     Hemanth reddy</b>
@@ -664,6 +664,27 @@ let accountVerify = (req, res) => {
 
 }
 
+let getUserDetail = (req, res) => {
+    UserModel.findOne({ 'userId': req.body.userId }, (err, userDetail) => {
+        if (err) {
+            logger.error('Failed To Retrieve user Data', 'userController: getUserDetail()', 10)
+            let apiResponse = response.generate('true', 'user detail not found', 404, null);
+            res.send(apiResponse);
+        }
+        else if (check.isEmpty(userDetail)) {
+            logger.error('Failed To Retrieve user Data', 'userController: getUserDetail()', 10)
+            let apiResponse = response.generate('true', 'user detail not found', 404, null);
+            res.send(apiResponse);
+        }
+        else {
+            let apiResponse = response.generate(false, 'user detail found', 200, userDetail);
+            res.send(apiResponse);
+
+        }
+    })
+
+}
+
 module.exports = {
 
     signUpFunction: signUpFunction,
@@ -673,6 +694,7 @@ module.exports = {
     updatePasswordFunction: updatePasswordFunction,
     signUpAdminFunction: signUpAdminFunction,
     getAllMessages: getAllMessages,
-    accountVerify: accountVerify
+    accountVerify: accountVerify,
+    getUserDetail: getUserDetail
 }// end exports
 
